@@ -38,7 +38,7 @@ function WelcomePanel() {
         </div>
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-purple-700">Welcome</p>
-          <h2 className="mt-0.5 text-xl font-bold tracking-tight text-zinc-900">Welcome to RPL Companion</h2>
+          <h2 className="mt-0.5 text-xl font-bold tracking-tight text-zinc-900">Welcome to RPL Educator Companion</h2>
           <p className="mt-1 max-w-3xl text-xs leading-5 text-zinc-600">
             This tool will assist you to organise and map a student’s evidence submitted toward an RPL application.
           </p>
@@ -123,6 +123,7 @@ export default function Home() {
       surname: 'Preview',
       givenNames: 'Developer',
       studentNumber: 'DEV-PREVIEW',
+      usi: 'PREVIEW1234',
       trainerName: 'Preview Assessor',
       organisation: 'Preview Qualification',
       assessmentDate: new Date().toLocaleDateString('en-CA'),
@@ -140,6 +141,22 @@ export default function Home() {
         driversLicenceProvided: false,
         driversLicenceNumber: '',
         driversLicenceState: '',
+        driversLicenceExpiry: '',
+        whiteCardProvided: false,
+        whiteCardNumber: '',
+        whiteCardExpiry: '',
+        forkliftLicenceProvided: false,
+        forkliftLicenceNumber: '',
+        forkliftLicenceExpiry: '',
+        rsaProvided: false,
+        rsaNumber: '',
+        rsaExpiry: '',
+        asbestosSilicaProvided: false,
+        asbestosSilicaNumber: '',
+        asbestosSilicaExpiry: '',
+        wwvpProvided: false,
+        wwvpNumber: '',
+        wwvpExpiry: '',
         sharePointRepositoryCreated: false,
         sharePointPath: '',
         elearnStorageCreated: false,
@@ -174,7 +191,7 @@ export default function Home() {
               </p>
             </div>
             <div className="min-w-0">
-              <h1 className="truncate bg-gradient-to-r from-white via-slate-100 to-purple-100 bg-clip-text text-xl font-extrabold tracking-tight text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] sm:text-2xl">RPL Assessor Companion</h1>
+              <h1 className="truncate bg-gradient-to-r from-white via-slate-100 to-purple-100 bg-clip-text text-xl font-extrabold tracking-tight text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] sm:text-2xl">RPL Educator Companion</h1>
               <p className="hidden truncate text-xs text-slate-300 sm:block">Recognition of Prior Learning workspace</p>
             </div>
           </div>

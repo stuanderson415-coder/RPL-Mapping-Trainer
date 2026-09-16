@@ -97,6 +97,7 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
     ['Unit of competency', `${unit.code} ${unit.title}`],
     ['Student name', studentDisplayName(record.student)],
     ['Student number', record.student.studentNumber],
+    ['USI', record.student.usi],
     ['Trainer / assessor', record.student.trainerName],
     ['Parent Qualification', record.student.organisation],
     ['Assessment date', formatDate(record.student.assessmentDate)],
@@ -104,8 +105,13 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
     ['SharePoint evidence repository', record.student.preRplChecklist.sharePointRepositoryCreated ? record.student.preRplChecklist.sharePointPath || 'Created' : 'Not recorded'],
     ['eLearn storage', record.student.preRplChecklist.elearnStorageCreated ? record.student.preRplChecklist.elearnUrl || 'Created' : 'Not recorded'],
     ['Driver licence', record.student.preRplChecklist.driversLicenceProvided
-      ? [record.student.preRplChecklist.driversLicenceNumber, record.student.preRplChecklist.driversLicenceState].filter(Boolean).join(' · ') || 'Provided'
+      ? [record.student.preRplChecklist.driversLicenceNumber, record.student.preRplChecklist.driversLicenceState, record.student.preRplChecklist.driversLicenceExpiry && `Expires ${formatDate(record.student.preRplChecklist.driversLicenceExpiry)}`].filter(Boolean).join(' · ') || 'Provided'
       : 'Not recorded'],
+    ['White Card', record.student.preRplChecklist.whiteCardProvided ? [record.student.preRplChecklist.whiteCardNumber, record.student.preRplChecklist.whiteCardExpiry && `Expires ${formatDate(record.student.preRplChecklist.whiteCardExpiry)}`].filter(Boolean).join(' · ') || 'Provided' : 'Not recorded'],
+    ['Forklift licence', record.student.preRplChecklist.forkliftLicenceProvided ? [record.student.preRplChecklist.forkliftLicenceNumber, record.student.preRplChecklist.forkliftLicenceExpiry && `Expires ${formatDate(record.student.preRplChecklist.forkliftLicenceExpiry)}`].filter(Boolean).join(' · ') || 'Provided' : 'Not recorded'],
+    ['RSA', record.student.preRplChecklist.rsaProvided ? [record.student.preRplChecklist.rsaNumber, record.student.preRplChecklist.rsaExpiry && `Expires ${formatDate(record.student.preRplChecklist.rsaExpiry)}`].filter(Boolean).join(' · ') || 'Provided' : 'Not recorded'],
+    ['Asbestos / Silica', record.student.preRplChecklist.asbestosSilicaProvided ? [record.student.preRplChecklist.asbestosSilicaNumber, record.student.preRplChecklist.asbestosSilicaExpiry && `Expires ${formatDate(record.student.preRplChecklist.asbestosSilicaExpiry)}`].filter(Boolean).join(' · ') || 'Provided' : 'Not recorded'],
+    ['WWVP', record.student.preRplChecklist.wwvpProvided ? [record.student.preRplChecklist.wwvpNumber, record.student.preRplChecklist.wwvpExpiry && `Expires ${formatDate(record.student.preRplChecklist.wwvpExpiry)}`].filter(Boolean).join(' · ') || 'Provided' : 'Not recorded'],
     ['RPL outcome', outcomeLabel(record.finalisation.outcome)],
     ['Outcome notes / conditions', record.finalisation.outcomeNotes],
   ];
@@ -178,7 +184,7 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
   const studentSignatureDate = formatDate(record.finalisation.studentSignatureDate) || '________________';
   const assessorSignatureDate = formatDate(record.finalisation.assessorSignatureDate) || '________________';
   const doc = new Document({
-    creator: 'RPL Companion',
+    creator: 'RPL Educator Companion',
     description: 'Recognition of Prior Learning assessment record',
     sections: [{
       properties: {

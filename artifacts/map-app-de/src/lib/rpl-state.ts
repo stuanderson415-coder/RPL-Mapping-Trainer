@@ -121,6 +121,22 @@ export type PreRplChecklist = {
   driversLicenceProvided: boolean;
   driversLicenceNumber: string;
   driversLicenceState: string;
+  driversLicenceExpiry: string;
+  whiteCardProvided: boolean;
+  whiteCardNumber: string;
+  whiteCardExpiry: string;
+  forkliftLicenceProvided: boolean;
+  forkliftLicenceNumber: string;
+  forkliftLicenceExpiry: string;
+  rsaProvided: boolean;
+  rsaNumber: string;
+  rsaExpiry: string;
+  asbestosSilicaProvided: boolean;
+  asbestosSilicaNumber: string;
+  asbestosSilicaExpiry: string;
+  wwvpProvided: boolean;
+  wwvpNumber: string;
+  wwvpExpiry: string;
   sharePointRepositoryCreated: boolean;
   sharePointPath: string;
   elearnStorageCreated: boolean;
@@ -141,6 +157,22 @@ export function createEmptyPreRplChecklist(): PreRplChecklist {
     driversLicenceProvided: false,
     driversLicenceNumber: '',
     driversLicenceState: '',
+    driversLicenceExpiry: '',
+    whiteCardProvided: false,
+    whiteCardNumber: '',
+    whiteCardExpiry: '',
+    forkliftLicenceProvided: false,
+    forkliftLicenceNumber: '',
+    forkliftLicenceExpiry: '',
+    rsaProvided: false,
+    rsaNumber: '',
+    rsaExpiry: '',
+    asbestosSilicaProvided: false,
+    asbestosSilicaNumber: '',
+    asbestosSilicaExpiry: '',
+    wwvpProvided: false,
+    wwvpNumber: '',
+    wwvpExpiry: '',
     sharePointRepositoryCreated: false,
     sharePointPath: '',
     elearnStorageCreated: false,
@@ -152,6 +184,7 @@ export type StudentDetails = {
   surname: string;
   givenNames: string;
   studentNumber: string;
+  usi: string;
   trainerName: string;
   organisation: string;
   assessmentDate: string;
@@ -169,7 +202,7 @@ export type EvidenceItem = {
   location: EvidenceLocation;
   classifications: EvidenceClassification[];
   subtypes: EvidenceSubtype[];
-  sourceKey?: 'pre-rpl-cv' | 'pre-rpl-transcript' | 'pre-rpl-position-description' | 'pre-rpl-drivers-licence';
+  sourceKey?: 'pre-rpl-cv' | 'pre-rpl-transcript' | 'pre-rpl-position-description' | 'pre-rpl-drivers-licence' | 'pre-rpl-white-card' | 'pre-rpl-forklift' | 'pre-rpl-rsa' | 'pre-rpl-asbestos-silica' | 'pre-rpl-wwvp';
 };
 
 export type InterviewRecord = {
@@ -223,6 +256,7 @@ export function createEmptyRplRecord(): RplRecord {
       surname: '',
       givenNames: '',
       studentNumber: '',
+      usi: '',
       trainerName: '',
       organisation: '',
       assessmentDate: '',
@@ -277,6 +311,7 @@ export function loadRplRecordForStudent(unitCode: string, studentNumber: string)
         surname: parsed.student?.surname ?? legacySurname,
         givenNames: parsed.student?.givenNames ?? legacyGivenNames,
         studentNumber: parsed.student?.studentNumber ?? '',
+        usi: parsed.student?.usi ?? '',
         trainerName: parsed.student?.trainerName ?? '',
         organisation: parsed.student?.organisation ?? '',
         assessmentDate: parsed.student?.assessmentDate ?? '',
@@ -397,6 +432,7 @@ export function persistRplRecord(unitCode: string, record: RplRecord, recordStud
         surname: record.student.surname,
         givenNames: record.student.givenNames,
         studentNumber,
+        usi: record.student.usi,
         trainerName: record.student.trainerName,
         organisation: record.student.organisation,
         assessmentDate: record.student.assessmentDate,

@@ -81,6 +81,12 @@ function tileStyle(item: Pick<EvidenceItem, 'colour'>) {
   return { backgroundColor: palette.soft, borderColor: palette.color, color: palette.color };
 }
 
+function displayDate(value: string) {
+  if (!value) return '';
+  const [year, month, day] = value.split('-');
+  return year && month && day ? `${day}/${month}/${year}` : value;
+}
+
 function EvidenceTile({
   evidence,
   index,
@@ -210,7 +216,12 @@ function withPreRplEvidence(current: RplRecord): RplRecord {
     { provided: checklist.cvResumeProvided, title: 'CV / résumé', reference: checklist.cvResumeFileName, sourceKey: 'pre-rpl-cv' },
     { provided: checklist.academicTranscriptProvided, title: 'Academic transcript', reference: checklist.academicTranscriptFileName, sourceKey: 'pre-rpl-transcript' },
     { provided: checklist.positionDescriptionProvided, title: 'Current position description', reference: checklist.positionDescriptionFileName, sourceKey: 'pre-rpl-position-description' },
-    { provided: checklist.driversLicenceProvided, title: 'Driver licence', reference: [checklist.driversLicenceNumber, checklist.driversLicenceState].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-drivers-licence' },
+    { provided: checklist.driversLicenceProvided, title: 'Driver licence', reference: [checklist.driversLicenceNumber, checklist.driversLicenceState, checklist.driversLicenceExpiry && `Expires ${displayDate(checklist.driversLicenceExpiry)}`].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-drivers-licence' },
+    { provided: checklist.whiteCardProvided, title: 'White Card', reference: [checklist.whiteCardNumber, checklist.whiteCardExpiry && `Expires ${displayDate(checklist.whiteCardExpiry)}`].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-white-card' },
+    { provided: checklist.forkliftLicenceProvided, title: 'Forklift licence', reference: [checklist.forkliftLicenceNumber, checklist.forkliftLicenceExpiry && `Expires ${displayDate(checklist.forkliftLicenceExpiry)}`].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-forklift' },
+    { provided: checklist.rsaProvided, title: 'RSA', reference: [checklist.rsaNumber, checklist.rsaExpiry && `Expires ${displayDate(checklist.rsaExpiry)}`].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-rsa' },
+    { provided: checklist.asbestosSilicaProvided, title: 'Asbestos / Silica', reference: [checklist.asbestosSilicaNumber, checklist.asbestosSilicaExpiry && `Expires ${displayDate(checklist.asbestosSilicaExpiry)}`].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-asbestos-silica' },
+    { provided: checklist.wwvpProvided, title: 'WWVP', reference: [checklist.wwvpNumber, checklist.wwvpExpiry && `Expires ${displayDate(checklist.wwvpExpiry)}`].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-wwvp' },
   ];
   const additions = candidates
     .filter(candidate => candidate.provided && !current.evidence.some(item => item.sourceKey === candidate.sourceKey))
@@ -497,6 +508,16 @@ export function RplWorkflow({ unit, studentNumber, prefill, initialStage = 'stud
               onChange={event => updateRecord(current => ({ ...current, student: { ...current.student, studentNumber: event.target.value } }))}
               placeholder="e.g. 12345678"
               className="h-10 w-full rounded-md border border-zinc-300 bg-zinc-50 px-2.5 text-sm outline-none transition focus:border-purple-700 focus:ring-2 focus:ring-purple-100"
+            />
+          </div>
+          <div>
+            <FieldLabel>USI</FieldLabel>
+            <input
+              value={record.student.usi}
+              onChange={event => updateRecord(current => ({ ...current, student: { ...current.student, usi: event.target.value.toUpperCase() } }))}
+              placeholder="10-character USI"
+              maxLength={10}
+              className="h-10 w-full rounded-md border border-zinc-300 bg-zinc-50 px-2.5 text-sm uppercase outline-none transition focus:border-purple-700 focus:ring-2 focus:ring-purple-100"
             />
           </div>
           <div>

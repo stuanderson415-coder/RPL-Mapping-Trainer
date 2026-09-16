@@ -172,7 +172,7 @@ export async function exportToWord(
   const heading = docTitle || `${unit.code} — ${unit.title}`;
 
   const doc = new Document({
-    creator:     'RPL Companion',
+    creator:     'RPL Educator Companion',
     description: 'VET Competency Mapping Matrix',
     sections: [{
       properties: {

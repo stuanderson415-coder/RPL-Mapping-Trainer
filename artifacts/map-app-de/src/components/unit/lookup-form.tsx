@@ -38,12 +38,61 @@ function ChecklistDocument({ id, label, checked, disabled, onCheckedChange }: Ch
   );
 }
 
+function LicenceItem({
+  id,
+  label,
+  checked,
+  number,
+  expiry,
+  disabled,
+  onCheckedChange,
+  onNumberChange,
+  onExpiryChange,
+}: {
+  id: string;
+  label: string;
+  checked: boolean;
+  number: string;
+  expiry: string;
+  disabled: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  onNumberChange: (number: string) => void;
+  onExpiryChange: (expiry: string) => void;
+}) {
+  return (
+    <div className="rounded-lg border border-zinc-200 bg-white p-2.5">
+      <div className="flex items-start gap-2">
+        <Checkbox id={id} checked={checked} onCheckedChange={value => onCheckedChange(value === true)} disabled={disabled} />
+        <label htmlFor={id} className="cursor-pointer text-xs font-semibold leading-4 text-zinc-800">{label}</label>
+      </div>
+      <div className="mt-2 grid gap-2">
+        <Input
+          value={number}
+          onChange={event => onNumberChange(event.target.value)}
+          placeholder="Number"
+          aria-label={`${label} number`}
+          disabled={disabled || !checked}
+          className="h-8 text-xs"
+        />
+        <DatePickerInput
+          value={expiry}
+          onChange={onExpiryChange}
+          disabled={disabled || !checked}
+          ariaLabel={`${label} expiry date`}
+          className="h-8 text-xs"
+        />
+      </div>
+    </div>
+  );
+}
+
 export function LookupForm({ onUnitLoaded, isPending }: Props) {
   const [code, setCode] = useState('');
   const [intake, setIntake] = useState<StudentDetails>({
     surname: '',
     givenNames: '',
     studentNumber: '',
+    usi: '',
     trainerName: '',
     organisation: '',
     assessmentDate: today(),
@@ -120,6 +169,10 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
             <Input placeholder="e.g. 12345678" value={intake.studentNumber} onChange={event => updateIntake({ studentNumber: event.target.value })} disabled={loading} />
           </label>
           <label className="grid min-w-0 gap-1">
+            <span className="text-xs font-semibold text-zinc-700">USI</span>
+            <Input placeholder="10-character USI" value={intake.usi} onChange={event => updateIntake({ usi: event.target.value.toUpperCase() })} maxLength={10} disabled={loading} />
+          </label>
+          <label className="grid min-w-0 gap-1">
             <span className="text-xs font-semibold text-zinc-700">Trainer / assessor</span>
             <Input placeholder="e.g. Jordan Lee" value={intake.trainerName} onChange={event => updateIntake({ trainerName: event.target.value })} disabled={loading} />
           </label>
@@ -185,7 +238,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                 <h3 className="text-xs font-semibold text-zinc-900">Initial documents provided</h3>
                 <p className="mt-0.5 text-[11px] text-zinc-500">Tick each item received. Documents remain in the nominated evidence repository.</p>
               </div>
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-2 sm:grid-cols-3">
                 <ChecklistDocument
                   id="cv-resume"
                   label="CV / résumé"
@@ -207,6 +260,15 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                   disabled={loading}
                   onCheckedChange={checked => updateChecklist({ positionDescriptionProvided: checked })}
                 />
+              </div>
+            </section>
+
+            <section className="border-t border-zinc-200 pt-2.5">
+              <div className="mb-1.5">
+                <h3 className="text-xs font-semibold text-zinc-900">Licensing</h3>
+                <p className="mt-0.5 text-[11px] text-zinc-500">Record licence or certification numbers and expiry dates where applicable.</p>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 <div className="rounded-lg border border-zinc-200 bg-white p-2.5">
                   <div className="flex items-start gap-2">
                     <Checkbox
@@ -217,7 +279,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                     />
                     <label htmlFor="drivers-licence" className="cursor-pointer text-xs font-semibold leading-4 text-zinc-800">Driver licence</label>
                   </div>
-                  <div className="mt-2 grid gap-2">
+                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
                     <Input
                       value={intake.preRplChecklist.driversLicenceNumber}
                       onChange={event => updateChecklist({ driversLicenceNumber: event.target.value })}
@@ -236,8 +298,20 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                       <option value="">State / Territory</option>
                       {['ACT', 'NSW', 'NT', 'QLD', 'SA', 'TAS', 'VIC', 'WA'].map(state => <option key={state} value={state}>{state}</option>)}
                     </select>
+                    <DatePickerInput
+                      value={intake.preRplChecklist.driversLicenceExpiry}
+                      onChange={driversLicenceExpiry => updateChecklist({ driversLicenceExpiry })}
+                      disabled={loading || !intake.preRplChecklist.driversLicenceProvided}
+                      ariaLabel="Driver licence expiry date"
+                      className="h-8 text-xs sm:col-span-2"
+                    />
                   </div>
                 </div>
+                <LicenceItem id="white-card" label="White Card" checked={intake.preRplChecklist.whiteCardProvided} number={intake.preRplChecklist.whiteCardNumber} expiry={intake.preRplChecklist.whiteCardExpiry} disabled={loading} onCheckedChange={whiteCardProvided => updateChecklist({ whiteCardProvided })} onNumberChange={whiteCardNumber => updateChecklist({ whiteCardNumber })} onExpiryChange={whiteCardExpiry => updateChecklist({ whiteCardExpiry })} />
+                <LicenceItem id="forklift-licence" label="Forklift" checked={intake.preRplChecklist.forkliftLicenceProvided} number={intake.preRplChecklist.forkliftLicenceNumber} expiry={intake.preRplChecklist.forkliftLicenceExpiry} disabled={loading} onCheckedChange={forkliftLicenceProvided => updateChecklist({ forkliftLicenceProvided })} onNumberChange={forkliftLicenceNumber => updateChecklist({ forkliftLicenceNumber })} onExpiryChange={forkliftLicenceExpiry => updateChecklist({ forkliftLicenceExpiry })} />
+                <LicenceItem id="rsa" label="RSA" checked={intake.preRplChecklist.rsaProvided} number={intake.preRplChecklist.rsaNumber} expiry={intake.preRplChecklist.rsaExpiry} disabled={loading} onCheckedChange={rsaProvided => updateChecklist({ rsaProvided })} onNumberChange={rsaNumber => updateChecklist({ rsaNumber })} onExpiryChange={rsaExpiry => updateChecklist({ rsaExpiry })} />
+                <LicenceItem id="asbestos-silica" label="Asbestos / Silica" checked={intake.preRplChecklist.asbestosSilicaProvided} number={intake.preRplChecklist.asbestosSilicaNumber} expiry={intake.preRplChecklist.asbestosSilicaExpiry} disabled={loading} onCheckedChange={asbestosSilicaProvided => updateChecklist({ asbestosSilicaProvided })} onNumberChange={asbestosSilicaNumber => updateChecklist({ asbestosSilicaNumber })} onExpiryChange={asbestosSilicaExpiry => updateChecklist({ asbestosSilicaExpiry })} />
+                <LicenceItem id="wwvp" label="WWVP" checked={intake.preRplChecklist.wwvpProvided} number={intake.preRplChecklist.wwvpNumber} expiry={intake.preRplChecklist.wwvpExpiry} disabled={loading} onCheckedChange={wwvpProvided => updateChecklist({ wwvpProvided })} onNumberChange={wwvpNumber => updateChecklist({ wwvpNumber })} onExpiryChange={wwvpExpiry => updateChecklist({ wwvpExpiry })} />
               </div>
             </section>
 
@@ -250,7 +324,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                     onCheckedChange={value => updateChecklist({ sharePointRepositoryCreated: value === true })}
                     disabled={loading}
                   />
-                  <label htmlFor="sharepoint-repository" className="cursor-pointer text-xs font-semibold text-zinc-800">SharePoint evidence repository created</label>
+                  <label htmlFor="sharepoint-repository" className="cursor-pointer text-xs font-semibold text-zinc-800">SharePoint Evidence Repository</label>
                 </div>
                 <label className="grid gap-1">
                   <span className="text-[11px] font-semibold text-zinc-700">SharePoint path</span>
@@ -271,7 +345,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                     onCheckedChange={value => updateChecklist({ elearnStorageCreated: value === true })}
                     disabled={loading}
                   />
-                  <label htmlFor="elearn-storage" className="cursor-pointer text-xs font-semibold text-zinc-800">eLearn storage created</label>
+                  <label htmlFor="elearn-storage" className="cursor-pointer text-xs font-semibold text-zinc-800">eLearn Storage Repository</label>
                 </div>
                 <label className="grid gap-1">
                   <span className="text-[11px] font-semibold text-zinc-700">eLearn URL</span>
