@@ -177,11 +177,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
             <span className="text-xs font-semibold text-zinc-700">Date of birth</span>
             <DatePickerInput value={intake.dateOfBirth} onChange={dateOfBirth => updateIntake({ dateOfBirth })} disabled={loading} ariaLabel="Date of birth" />
           </label>
-          <label className="grid min-w-0 gap-1">
-            <span className="text-xs font-semibold text-zinc-700">Trainer / assessor</span>
-            <Input placeholder="e.g. Jordan Lee" value={intake.trainerName} onChange={event => updateIntake({ trainerName: event.target.value })} disabled={loading} />
-          </label>
-          <label className="grid min-w-0 gap-1">
+          <label className="grid min-w-0 gap-1 lg:col-span-2">
             <span className="text-xs font-semibold text-zinc-700">Assessment date</span>
             <DatePickerInput value={intake.assessmentDate} onChange={assessmentDate => updateIntake({ assessmentDate })} disabled={loading} ariaLabel="Assessment date" />
           </label>
@@ -206,15 +202,16 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
           <div className="mt-2 space-y-2.5 rounded-lg border border-zinc-200 bg-zinc-50 p-3">
             <h3 className="text-xs font-bold uppercase tracking-[0.1em] text-purple-800">RPL Pre-Assessment</h3>
             <section className="grid gap-2 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end">
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  id="pre-rpl-interview"
-                  checked={intake.preRplChecklist.interviewCompleted}
-                  onCheckedChange={value => updateChecklist({ interviewCompleted: value === true })}
+              <label className="grid gap-1">
+                <span className="text-[11px] font-semibold text-zinc-700">Educator / assessor</span>
+                <Input
+                  placeholder="e.g. Jordan Lee"
+                  value={intake.trainerName}
+                  onChange={event => updateIntake({ trainerName: event.target.value })}
                   disabled={loading}
+                  className="h-8 bg-white text-xs"
                 />
-                <label htmlFor="pre-rpl-interview" className="cursor-pointer text-[11px] font-semibold text-zinc-800">Pre-RPL interview completed</label>
-              </div>
+              </label>
               <label className="grid gap-1">
                 <span className="text-[11px] font-semibold text-zinc-700">Interview date (DD/MM/YYYY)</span>
                 <DatePickerInput
@@ -225,6 +222,15 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                   className="h-8 text-xs"
                 />
               </label>
+              <div className="flex items-center gap-2 lg:col-span-2">
+                <Checkbox
+                  id="pre-rpl-interview"
+                  checked={intake.preRplChecklist.interviewCompleted}
+                  onCheckedChange={value => updateChecklist({ interviewCompleted: value === true })}
+                  disabled={loading}
+                />
+                <label htmlFor="pre-rpl-interview" className="cursor-pointer text-[11px] font-semibold text-zinc-800">Pre-RPL interview completed</label>
+              </div>
             </section>
             <label className="grid gap-1">
               <span className="text-[11px] font-semibold text-zinc-700">Pre-assessment interview notes</span>
