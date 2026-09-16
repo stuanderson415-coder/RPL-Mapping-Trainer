@@ -101,6 +101,11 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
     ['Parent Qualification', record.student.organisation],
     ['Assessment date', formatDate(record.student.assessmentDate)],
     ['Pre-assessment interview notes', record.student.preRplChecklist.interviewNotes],
+    ['SharePoint evidence repository', record.student.preRplChecklist.sharePointRepositoryCreated ? record.student.preRplChecklist.sharePointPath || 'Created' : 'Not recorded'],
+    ['eLearn storage', record.student.preRplChecklist.elearnStorageCreated ? record.student.preRplChecklist.elearnUrl || 'Created' : 'Not recorded'],
+    ['Driver licence', record.student.preRplChecklist.driversLicenceProvided
+      ? [record.student.preRplChecklist.driversLicenceNumber, record.student.preRplChecklist.driversLicenceState].filter(Boolean).join(' · ') || 'Provided'
+      : 'Not recorded'],
     ['RPL outcome', outcomeLabel(record.finalisation.outcome)],
     ['Outcome notes / conditions', record.finalisation.outcomeNotes],
   ];

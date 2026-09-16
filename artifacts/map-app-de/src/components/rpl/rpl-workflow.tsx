@@ -210,6 +210,7 @@ function withPreRplEvidence(current: RplRecord): RplRecord {
     { provided: checklist.cvResumeProvided, title: 'CV / résumé', reference: checklist.cvResumeFileName, sourceKey: 'pre-rpl-cv' },
     { provided: checklist.academicTranscriptProvided, title: 'Academic transcript', reference: checklist.academicTranscriptFileName, sourceKey: 'pre-rpl-transcript' },
     { provided: checklist.positionDescriptionProvided, title: 'Current position description', reference: checklist.positionDescriptionFileName, sourceKey: 'pre-rpl-position-description' },
+    { provided: checklist.driversLicenceProvided, title: 'Driver licence', reference: [checklist.driversLicenceNumber, checklist.driversLicenceState].filter(Boolean).join(' · '), sourceKey: 'pre-rpl-drivers-licence' },
   ];
   const additions = candidates
     .filter(candidate => candidate.provided && !current.evidence.some(item => item.sourceKey === candidate.sourceKey))
@@ -222,9 +223,11 @@ function withPreRplEvidence(current: RplRecord): RplRecord {
         ? 'professional-resume' as const
         : candidate.sourceKey === 'pre-rpl-transcript'
           ? 'academic-transcript' as const
-          : 'position-description' as const,
+          : candidate.sourceKey === 'pre-rpl-position-description'
+            ? 'position-description' as const
+            : 'other' as const,
       colour: 'teal' as const,
-      location: checklist.sharePointRepositoryCreated ? 'digital-sharepoint' as const : 'sighted-logged' as const,
+      location: checklist.sharePointRepositoryCreated || checklist.elearnStorageCreated ? 'digital-sharepoint' as const : 'sighted-logged' as const,
       classifications: ['indirect'] as EvidenceClassification[],
       subtypes: ['work-sample-portfolio'] as EvidenceSubtype[],
       sourceKey: candidate.sourceKey,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, Loader2, UserRound } from 'lucide-react';
+import { Loader2, UserRound } from 'lucide-react';
 import { useLookupUnit, type UnitOfCompetency } from '@workspace/api-client-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -23,30 +23,17 @@ type ChecklistDocumentProps = {
   id: string;
   label: string;
   checked: boolean;
-  fileName: string;
   disabled: boolean;
   onCheckedChange: (checked: boolean) => void;
-  onFileChange: (file: File | null) => void;
 };
 
-function ChecklistDocument({ id, label, checked, fileName, disabled, onCheckedChange, onFileChange }: ChecklistDocumentProps) {
+function ChecklistDocument({ id, label, checked, disabled, onCheckedChange }: ChecklistDocumentProps) {
   return (
     <div className="rounded-lg border border-zinc-200 bg-white p-2.5">
       <div className="flex items-start gap-2">
         <Checkbox id={id} checked={checked} onCheckedChange={value => onCheckedChange(value === true)} disabled={disabled} />
         <label htmlFor={id} className="cursor-pointer text-xs font-semibold leading-4 text-zinc-800">{label}</label>
       </div>
-      <label className="mt-2 flex cursor-pointer items-center gap-2 rounded-md border border-dashed border-zinc-300 bg-zinc-50 px-2 py-1.5 text-[11px] font-medium text-zinc-600 transition hover:border-purple-600 hover:text-purple-800">
-        <FileText className="h-3.5 w-3.5 shrink-0" />
-        <span className="truncate">{fileName || 'Choose document'}</span>
-        <Input
-          type="file"
-          accept=".pdf,.doc,.docx"
-          className="sr-only"
-          onChange={event => onFileChange(event.target.files?.[0] ?? null)}
-          disabled={disabled}
-        />
-      </label>
     </div>
   );
 }
@@ -195,60 +182,109 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
 
             <section className="border-t border-zinc-200 pt-2.5">
               <div className="mb-1.5">
-                <h3 className="text-xs font-semibold text-zinc-900">Base documents provided</h3>
-                <p className="mt-0.5 text-[11px] text-zinc-500">Tick each item received and choose its supporting document.</p>
+                <h3 className="text-xs font-semibold text-zinc-900">Initial documents provided</h3>
+                <p className="mt-0.5 text-[11px] text-zinc-500">Tick each item received. Documents remain in the nominated evidence repository.</p>
               </div>
-              <div className="grid gap-2 sm:grid-cols-3">
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
                 <ChecklistDocument
                   id="cv-resume"
                   label="CV / résumé"
                   checked={intake.preRplChecklist.cvResumeProvided}
-                  fileName={intake.preRplChecklist.cvResumeFileName}
                   disabled={loading}
                   onCheckedChange={checked => updateChecklist({ cvResumeProvided: checked })}
-                  onFileChange={file => updateChecklist({ cvResumeProvided: Boolean(file), cvResumeFileName: file?.name ?? '' })}
                 />
                 <ChecklistDocument
                   id="academic-transcript"
                   label="Academic transcript"
                   checked={intake.preRplChecklist.academicTranscriptProvided}
-                  fileName={intake.preRplChecklist.academicTranscriptFileName}
                   disabled={loading}
                   onCheckedChange={checked => updateChecklist({ academicTranscriptProvided: checked })}
-                  onFileChange={file => updateChecklist({ academicTranscriptProvided: Boolean(file), academicTranscriptFileName: file?.name ?? '' })}
                 />
                 <ChecklistDocument
                   id="position-description"
                   label="Current position description"
                   checked={intake.preRplChecklist.positionDescriptionProvided}
-                  fileName={intake.preRplChecklist.positionDescriptionFileName}
                   disabled={loading}
                   onCheckedChange={checked => updateChecklist({ positionDescriptionProvided: checked })}
-                  onFileChange={file => updateChecklist({ positionDescriptionProvided: Boolean(file), positionDescriptionFileName: file?.name ?? '' })}
                 />
+                <div className="rounded-lg border border-zinc-200 bg-white p-2.5">
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="drivers-licence"
+                      checked={intake.preRplChecklist.driversLicenceProvided}
+                      onCheckedChange={value => updateChecklist({ driversLicenceProvided: value === true })}
+                      disabled={loading}
+                    />
+                    <label htmlFor="drivers-licence" className="cursor-pointer text-xs font-semibold leading-4 text-zinc-800">Driver licence</label>
+                  </div>
+                  <div className="mt-2 grid gap-2">
+                    <Input
+                      value={intake.preRplChecklist.driversLicenceNumber}
+                      onChange={event => updateChecklist({ driversLicenceNumber: event.target.value })}
+                      placeholder="Licence number"
+                      aria-label="Driver licence number"
+                      disabled={loading || !intake.preRplChecklist.driversLicenceProvided}
+                      className="h-8 text-xs"
+                    />
+                    <select
+                      value={intake.preRplChecklist.driversLicenceState}
+                      onChange={event => updateChecklist({ driversLicenceState: event.target.value })}
+                      aria-label="Driver licence state or territory"
+                      disabled={loading || !intake.preRplChecklist.driversLicenceProvided}
+                      className="h-8 rounded-md border border-zinc-300 bg-white px-2 text-xs outline-none focus:border-purple-700 disabled:bg-zinc-100"
+                    >
+                      <option value="">State / Territory</option>
+                      {['ACT', 'NSW', 'NT', 'QLD', 'SA', 'TAS', 'VIC', 'WA'].map(state => <option key={state} value={state}>{state}</option>)}
+                    </select>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <section className="grid gap-2.5 border-t border-zinc-200 pt-2.5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:items-end">
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  id="sharepoint-repository"
-                  checked={intake.preRplChecklist.sharePointRepositoryCreated}
-                  onCheckedChange={value => updateChecklist({ sharePointRepositoryCreated: value === true })}
-                  disabled={loading}
-                />
-                <label htmlFor="sharepoint-repository" className="cursor-pointer text-xs font-semibold text-zinc-800">SharePoint evidence repository created</label>
+            <section className="grid gap-2.5 border-t border-zinc-200 pt-2.5">
+              <div className="grid gap-2.5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:items-end">
+                <div className="flex items-center gap-2">
+                  <Checkbox
+                    id="sharepoint-repository"
+                    checked={intake.preRplChecklist.sharePointRepositoryCreated}
+                    onCheckedChange={value => updateChecklist({ sharePointRepositoryCreated: value === true })}
+                    disabled={loading}
+                  />
+                  <label htmlFor="sharepoint-repository" className="cursor-pointer text-xs font-semibold text-zinc-800">SharePoint evidence repository created</label>
+                </div>
+                <label className="grid gap-1">
+                  <span className="text-[11px] font-semibold text-zinc-700">SharePoint path</span>
+                  <Input
+                    placeholder="https://… or document library / folder path"
+                    value={intake.preRplChecklist.sharePointPath}
+                    onChange={event => updateChecklist({ sharePointPath: event.target.value })}
+                    disabled={loading}
+                    className="h-8 bg-white text-xs"
+                  />
+                </label>
               </div>
-              <label className="grid gap-1">
-                <span className="text-[11px] font-semibold text-zinc-700">SharePoint path</span>
-                <Input
-                  placeholder="https://… or document library / folder path"
-                  value={intake.preRplChecklist.sharePointPath}
-                  onChange={event => updateChecklist({ sharePointPath: event.target.value })}
-                  disabled={loading}
-                  className="h-8 bg-white text-xs"
-                />
-              </label>
+              <div className="grid gap-2.5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:items-end">
+                <div className="flex items-center gap-2">
+                  <Checkbox
+                    id="elearn-storage"
+                    checked={intake.preRplChecklist.elearnStorageCreated}
+                    onCheckedChange={value => updateChecklist({ elearnStorageCreated: value === true })}
+                    disabled={loading}
+                  />
+                  <label htmlFor="elearn-storage" className="cursor-pointer text-xs font-semibold text-zinc-800">eLearn storage created</label>
+                </div>
+                <label className="grid gap-1">
+                  <span className="text-[11px] font-semibold text-zinc-700">eLearn URL</span>
+                  <Input
+                    type="url"
+                    placeholder="https://…"
+                    value={intake.preRplChecklist.elearnUrl}
+                    onChange={event => updateChecklist({ elearnUrl: event.target.value })}
+                    disabled={loading || !intake.preRplChecklist.elearnStorageCreated}
+                    className="h-8 bg-white text-xs"
+                  />
+                </label>
+              </div>
             </section>
           </div>
         </details>

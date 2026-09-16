@@ -118,8 +118,13 @@ export type PreRplChecklist = {
   academicTranscriptFileName: string;
   positionDescriptionProvided: boolean;
   positionDescriptionFileName: string;
+  driversLicenceProvided: boolean;
+  driversLicenceNumber: string;
+  driversLicenceState: string;
   sharePointRepositoryCreated: boolean;
   sharePointPath: string;
+  elearnStorageCreated: boolean;
+  elearnUrl: string;
 };
 
 export function createEmptyPreRplChecklist(): PreRplChecklist {
@@ -133,8 +138,13 @@ export function createEmptyPreRplChecklist(): PreRplChecklist {
     academicTranscriptFileName: '',
     positionDescriptionProvided: false,
     positionDescriptionFileName: '',
+    driversLicenceProvided: false,
+    driversLicenceNumber: '',
+    driversLicenceState: '',
     sharePointRepositoryCreated: false,
     sharePointPath: '',
+    elearnStorageCreated: false,
+    elearnUrl: '',
   };
 }
 
@@ -159,7 +169,7 @@ export type EvidenceItem = {
   location: EvidenceLocation;
   classifications: EvidenceClassification[];
   subtypes: EvidenceSubtype[];
-  sourceKey?: 'pre-rpl-cv' | 'pre-rpl-transcript' | 'pre-rpl-position-description';
+  sourceKey?: 'pre-rpl-cv' | 'pre-rpl-transcript' | 'pre-rpl-position-description' | 'pre-rpl-drivers-licence';
 };
 
 export type InterviewRecord = {

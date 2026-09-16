@@ -137,8 +137,13 @@ export default function Home() {
         academicTranscriptFileName: 'preview-transcript.pdf',
         positionDescriptionProvided: true,
         positionDescriptionFileName: 'preview-position-description.pdf',
+        driversLicenceProvided: false,
+        driversLicenceNumber: '',
+        driversLicenceState: '',
         sharePointRepositoryCreated: false,
         sharePointPath: '',
+        elearnStorageCreated: false,
+        elearnUrl: '',
       },
     };
     if (currentUnit) {
