@@ -15,6 +15,10 @@ export const EVIDENCE_TYPES = [
   { name: 'Audio', value: 'audio' },
   { name: 'Case Note', value: 'case-note' },
   { name: 'Licence / Permit', value: 'licence-permit' },
+  { name: 'Job Card', value: 'job-card' },
+  { name: 'Work Sample', value: 'work-sample' },
+  { name: 'Work Skill Demonstration', value: 'work-skill-demonstration' },
+  { name: 'Story of Practice', value: 'story-of-practice' },
   { name: 'Other', value: 'other' },
 ] as const;
 
