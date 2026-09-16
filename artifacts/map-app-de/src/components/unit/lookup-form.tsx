@@ -156,7 +156,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
       </CardHeader>
 
       <CardContent className="pt-4">
-        <form onSubmit={handleCodeSubmit} className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-8">
+        <form onSubmit={handleCodeSubmit} className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-6">
           <label className="grid min-w-0 gap-1">
             <span className="text-xs font-semibold text-zinc-700">Surname <span className="text-rose-600">*</span></span>
             <Input placeholder="e.g. Morgan" value={intake.surname} onChange={event => updateIntake({ surname: event.target.value })} disabled={loading} />
@@ -178,10 +178,6 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
             <DatePickerInput value={intake.dateOfBirth} onChange={dateOfBirth => updateIntake({ dateOfBirth })} disabled={loading} ariaLabel="Date of birth" />
           </label>
           <label className="grid min-w-0 gap-1 lg:col-span-2">
-            <span className="text-xs font-semibold text-zinc-700">Assessment date</span>
-            <DatePickerInput value={intake.assessmentDate} onChange={assessmentDate => updateIntake({ assessmentDate })} disabled={loading} ariaLabel="Assessment date" />
-          </label>
-          <label className="grid min-w-0 gap-1 lg:col-span-4">
             <span className="text-xs font-semibold text-zinc-700">Parent Qualification</span>
             <Input placeholder="e.g. Certificate III in Community Services" value={intake.organisation} onChange={event => updateIntake({ organisation: event.target.value })} disabled={loading} />
           </label>
@@ -213,12 +209,12 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
                 />
               </label>
               <label className="grid gap-1">
-                <span className="text-[11px] font-semibold text-zinc-700">Interview date (DD/MM/YYYY)</span>
+                <span className="text-[11px] font-semibold text-zinc-700">RPL Start Date (DD/MM/YYYY)</span>
                 <DatePickerInput
-                  value={intake.preRplChecklist.interviewDate}
-                  onChange={interviewDate => updateChecklist({ interviewDate })}
+                  value={intake.assessmentDate}
+                  onChange={assessmentDate => updateIntake({ assessmentDate })}
                   disabled={loading}
-                  ariaLabel="Pre-RPL interview date"
+                  ariaLabel="RPL Start Date"
                   className="h-8 text-xs"
                 />
               </label>

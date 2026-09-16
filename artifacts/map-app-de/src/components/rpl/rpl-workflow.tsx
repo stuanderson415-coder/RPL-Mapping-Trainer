@@ -548,11 +548,11 @@ export function RplWorkflow({ unit, studentNumber, prefill, initialStage = 'stud
             />
           </div>
           <div>
-            <FieldLabel>Assessment date (DD/MM/YYYY)</FieldLabel>
+            <FieldLabel>RPL Start Date (DD/MM/YYYY)</FieldLabel>
             <DatePickerInput
               value={record.student.assessmentDate}
               onChange={assessmentDate => updateRecord(current => ({ ...current, student: { ...current.student, assessmentDate } }))}
-              ariaLabel="Assessment date"
+              ariaLabel="RPL Start Date"
               className="bg-zinc-50"
             />
           </div>
@@ -1009,7 +1009,7 @@ export function RplWorkflow({ unit, studentNumber, prefill, initialStage = 'stud
              <span><strong>Student:</strong> {studentName || 'Not recorded'}</span>
             <span><strong>Student number:</strong> {record.student.studentNumber || 'Not recorded'}</span>
             <span><strong>Trainer / assessor:</strong> {record.student.trainerName || 'Not recorded'}</span>
-            <span><strong>Assessment date:</strong> {record.student.assessmentDate || 'Not recorded'}</span>
+            <span><strong>RPL Start Date:</strong> {record.student.assessmentDate || 'Not recorded'}</span>
             <span><strong>Evidence items:</strong> {record.evidence.length}</span>
             <span><strong>Direct mappings:</strong> {coveredRows} of {requirementRows.length}</span>
           </div>

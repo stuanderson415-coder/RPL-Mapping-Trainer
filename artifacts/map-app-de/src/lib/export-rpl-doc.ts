@@ -101,7 +101,7 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
     ['Date of birth', formatDate(record.student.dateOfBirth)],
     ['Trainer / assessor', record.student.trainerName],
     ['Parent Qualification', record.student.organisation],
-    ['Assessment date', formatDate(record.student.assessmentDate)],
+    ['RPL Start Date', formatDate(record.student.assessmentDate)],
     ['Pre-assessment interview notes', record.student.preRplChecklist.interviewNotes],
     ['SharePoint evidence repository', record.student.preRplChecklist.sharePointRepositoryCreated ? record.student.preRplChecklist.sharePointPath || 'Created' : 'Not recorded'],
     ['eLearn storage', record.student.preRplChecklist.elearnStorageCreated ? record.student.preRplChecklist.elearnUrl || 'Created' : 'Not recorded'],
