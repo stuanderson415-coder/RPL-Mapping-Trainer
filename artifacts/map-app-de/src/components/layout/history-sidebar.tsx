@@ -76,7 +76,7 @@ export function HistorySidebar({ onSelect }: { onSelect: (code: string, studentN
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-6 w-6 shrink-0 text-zinc-200 hover:bg-zinc-700 hover:text-red-300"
+                  className="mr-1 h-6 w-6 shrink-0 text-zinc-200 hover:bg-zinc-700 hover:text-red-300"
                    onClick={(e) => handleDelete(entry, e)}
                    title="Remove RPL record"
                 >
