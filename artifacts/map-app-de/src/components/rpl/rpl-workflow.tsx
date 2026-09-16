@@ -521,6 +521,15 @@ export function RplWorkflow({ unit, studentNumber, prefill, initialStage = 'stud
             />
           </div>
           <div>
+            <FieldLabel>Date of birth</FieldLabel>
+            <DatePickerInput
+              value={record.student.dateOfBirth}
+              onChange={dateOfBirth => updateRecord(current => ({ ...current, student: { ...current.student, dateOfBirth } }))}
+              ariaLabel="Date of birth"
+              className="h-10"
+            />
+          </div>
+          <div>
             <FieldLabel>Trainer / assessor</FieldLabel>
             <input
               value={record.student.trainerName}

@@ -98,6 +98,7 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
     ['Student name', studentDisplayName(record.student)],
     ['Student number', record.student.studentNumber],
     ['USI', record.student.usi],
+    ['Date of birth', formatDate(record.student.dateOfBirth)],
     ['Trainer / assessor', record.student.trainerName],
     ['Parent Qualification', record.student.organisation],
     ['Assessment date', formatDate(record.student.assessmentDate)],

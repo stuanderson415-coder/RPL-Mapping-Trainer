@@ -185,6 +185,7 @@ export type StudentDetails = {
   givenNames: string;
   studentNumber: string;
   usi: string;
+  dateOfBirth: string;
   trainerName: string;
   organisation: string;
   assessmentDate: string;
@@ -257,6 +258,7 @@ export function createEmptyRplRecord(): RplRecord {
       givenNames: '',
       studentNumber: '',
       usi: '',
+      dateOfBirth: '',
       trainerName: '',
       organisation: '',
       assessmentDate: '',
@@ -312,6 +314,7 @@ export function loadRplRecordForStudent(unitCode: string, studentNumber: string)
         givenNames: parsed.student?.givenNames ?? legacyGivenNames,
         studentNumber: parsed.student?.studentNumber ?? '',
         usi: parsed.student?.usi ?? '',
+        dateOfBirth: parsed.student?.dateOfBirth ?? '',
         trainerName: parsed.student?.trainerName ?? '',
         organisation: parsed.student?.organisation ?? '',
         assessmentDate: parsed.student?.assessmentDate ?? '',
@@ -433,6 +436,7 @@ export function persistRplRecord(unitCode: string, record: RplRecord, recordStud
         givenNames: record.student.givenNames,
         studentNumber,
         usi: record.student.usi,
+        dateOfBirth: record.student.dateOfBirth,
         trainerName: record.student.trainerName,
         organisation: record.student.organisation,
         assessmentDate: record.student.assessmentDate,

@@ -124,6 +124,7 @@ export default function Home() {
       givenNames: 'Developer',
       studentNumber: 'DEV-PREVIEW',
       usi: 'PREVIEW1234',
+      dateOfBirth: '',
       trainerName: 'Preview Assessor',
       organisation: 'Preview Qualification',
       assessmentDate: new Date().toLocaleDateString('en-CA'),

@@ -93,6 +93,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
     givenNames: '',
     studentNumber: '',
     usi: '',
+    dateOfBirth: '',
     trainerName: '',
     organisation: '',
     assessmentDate: today(),
@@ -155,7 +156,7 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
       </CardHeader>
 
       <CardContent className="pt-4">
-        <form onSubmit={handleCodeSubmit} className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-6">
+        <form onSubmit={handleCodeSubmit} className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-8">
           <label className="grid min-w-0 gap-1">
             <span className="text-xs font-semibold text-zinc-700">Surname <span className="text-rose-600">*</span></span>
             <Input placeholder="e.g. Morgan" value={intake.surname} onChange={event => updateIntake({ surname: event.target.value })} disabled={loading} />
@@ -173,14 +174,18 @@ export function LookupForm({ onUnitLoaded, isPending }: Props) {
             <Input placeholder="10-character USI" value={intake.usi} onChange={event => updateIntake({ usi: event.target.value.toUpperCase() })} maxLength={10} disabled={loading} />
           </label>
           <label className="grid min-w-0 gap-1">
+            <span className="text-xs font-semibold text-zinc-700">Date of birth</span>
+            <DatePickerInput value={intake.dateOfBirth} onChange={dateOfBirth => updateIntake({ dateOfBirth })} disabled={loading} ariaLabel="Date of birth" />
+          </label>
+          <label className="grid min-w-0 gap-1">
             <span className="text-xs font-semibold text-zinc-700">Trainer / assessor</span>
             <Input placeholder="e.g. Jordan Lee" value={intake.trainerName} onChange={event => updateIntake({ trainerName: event.target.value })} disabled={loading} />
           </label>
           <label className="grid min-w-0 gap-1">
-            <span className="text-xs font-semibold text-zinc-700">Assessment date (DD/MM/YYYY)</span>
+            <span className="text-xs font-semibold text-zinc-700">Assessment date</span>
             <DatePickerInput value={intake.assessmentDate} onChange={assessmentDate => updateIntake({ assessmentDate })} disabled={loading} ariaLabel="Assessment date" />
           </label>
-          <label className="grid min-w-0 gap-1 lg:col-span-2">
+          <label className="grid min-w-0 gap-1 lg:col-span-4">
             <span className="text-xs font-semibold text-zinc-700">Parent Qualification</span>
             <Input placeholder="e.g. Certificate III in Community Services" value={intake.organisation} onChange={event => updateIntake({ organisation: event.target.value })} disabled={loading} />
           </label>
