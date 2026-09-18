@@ -197,29 +197,21 @@ export default function Home() {
             </div>
           </div>
           <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 flex-col items-center lg:flex">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+              Developer Demonstration Version
+            </p>
             <TooltipProvider delayDuration={200}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <button type="button" className="pointer-events-auto cursor-help text-xs font-bold uppercase tracking-[0.18em] text-amber-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
-                    Developer Demonstration Version
+                  <button type="button" className="pointer-events-auto mt-1 cursor-help text-[10px] font-medium tracking-wide text-slate-300 underline decoration-slate-500 underline-offset-2 transition hover:text-white">
+                    © Stuart Anderson, Fastigiata Lab
                   </button>
                 </TooltipTrigger>
-                <TooltipContent side="bottom" className="max-w-xs border border-slate-600 bg-slate-950 px-3 py-2 text-center text-xs leading-5 text-slate-100 shadow-xl">
-                  This prototype is original work and is offered in good faith and at no cost for internal evaluation.
+                <TooltipContent side="bottom" className="max-w-md border border-slate-600 bg-slate-950 px-3 py-2 text-center text-xs leading-5 text-slate-100 shadow-xl">
+                  RPL Educator Companion © 2026 Stuart Anderson / Fastigiata Lab. Licensed under GNU AGPL v3.0. Dynamic Card Mapping™ conceived and developed by Stuart Anderson. See repository LICENSE and NOTICE for details.
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <p className="mt-1 text-[10px] font-medium tracking-wide text-slate-300">
-              Developed by Stuart Anderson ·{' '}
-              <a
-                href="https://fastigiatalab.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pointer-events-auto underline decoration-slate-500 underline-offset-2 transition hover:text-white"
-              >
-                fastigiatalab.com
-              </a>
-            </p>
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <div className="hidden items-center gap-2 md:flex">
