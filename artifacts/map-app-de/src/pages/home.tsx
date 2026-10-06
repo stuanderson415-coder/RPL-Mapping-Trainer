@@ -215,7 +215,7 @@ export default function Home() {
               <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/License-AGPL--3.0-blue.svg" alt="License: GNU AGPL 3.0" className="h-5" />
               </a>
-              <a href="https://github.com/stuanderson415-coder/map-app" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/stuanderson415-coder/Unit-Scraper-Pro" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/Source-GitHub-181717?logo=github" alt="Source on GitHub" className="h-5" />
               </a>
             </div>
