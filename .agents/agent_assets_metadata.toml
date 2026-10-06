@@ -70,3 +70,17 @@ mtime_ms = 1789306645723
 storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/3c87d3d9-5776-4af6-b152-13d4040e9595/fccdee62-61ed-4ea6-88ba-d01254dfcfcd"
 storage_version_token = "1789306649940297"
 content_type = "image/png"
+
+[[outputs]]
+id = "vq5jT2WWaFqJQgUfRvxzC"
+uri = "file://artifacts/map-app-de/public/icons/rg-512.png"
+type = "image"
+title = "RG app icon"
+description = "Thin RG lettering with charcoal and muted-blue colours, without CIT branding."
+logical_id = "19a99712-bb09-479e-981a-7e2df74a17dc"
+content_hash = "sha256:b843452562a38cdb476213dc8266489959ef6b1a65dc4e01a6ce548f0acba1d2"
+size = 32346
+mtime_ms = 1791258474605
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/19a99712-bb09-479e-981a-7e2df74a17dc/93dec060-039d-46c4-98f9-b42c6f8f5b3b"
+storage_version_token = "1791258520302182"
+content_type = "image/png"
