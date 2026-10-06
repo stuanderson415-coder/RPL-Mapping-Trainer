@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="164" height="88" viewBox="0 0 164 88" role="img" aria-label="My RTO">
+  <g fill="#fff">
+    <path d="M4 4h7l7 12 7-12h7v25h-7V16l-7 11-7-11v13H4zM38 4h8l6 10 6-10h8L56 21v8h-8v-8z"/>
+    <path d="M4 38h31c12 0 19 7 19 18 0 8-4 13-10 16l13 12H38L24 70h-6v14H4zm14 12v9h15c5 0 7-1 7-4s-2-5-7-5z"/>
+    <path d="M58 38h49v13H90v33H75V51H58z"/>
+    <path fill-rule="evenodd" d="M134 37c16 0 26 9 26 24s-10 24-26 24-26-9-26-24 10-24 26-24zm0 13c-7 0-11 4-11 11s4 11 11 11 11-4 11-11-4-11-11-11z"/>
+    <path d="M75 18h85v4H75z"/>
+  </g>
+</svg>

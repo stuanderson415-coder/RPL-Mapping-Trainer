@@ -183,13 +183,10 @@ export default function Home() {
           <div className="flex min-w-0 items-center gap-3">
             <div className="w-[82px] shrink-0 text-center">
               <img
-                src="/rpl-companion-logo.png"
-                alt="CIT logo"
-                className="mx-auto h-9 w-[82px] object-contain brightness-0 invert drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]"
+                src={`${import.meta.env.BASE_URL}my-rto-logo.svg`}
+                alt="My RTO logo"
+                className="mx-auto h-11 w-[82px] object-contain drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]"
               />
-              <p className="mt-0.5 text-[7px] leading-[7px] text-slate-200">
-                CIT Logo included for demonstration purposes only
-              </p>
             </div>
             <div className="min-w-0">
               <h1 className="truncate bg-gradient-to-r from-white via-slate-100 to-purple-100 bg-clip-text text-xl font-extrabold tracking-tight text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] sm:text-2xl">RPL Educator Companion</h1>
