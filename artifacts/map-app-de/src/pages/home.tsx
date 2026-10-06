@@ -178,33 +178,33 @@ export default function Home() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-[#30445f] bg-gradient-to-r from-[#101f34] via-[#18304d] to-[#11253d] text-white shadow-md">
+      <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-[#393639] bg-gradient-to-r from-[#161618] via-[#232427] to-[#1f2022] text-white shadow-md">
         <div className="flex h-full w-full items-center justify-between gap-3 px-4 md:px-6">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="w-[82px] shrink-0 text-center">
+            <div className="w-12 shrink-0">
               <img
-                src={`${import.meta.env.BASE_URL}my-rto-logo.svg`}
-                alt="My RTO logo"
-                className="mx-auto h-11 w-[82px] object-contain drop-shadow-[0_2px_2px_rgba(0,0,0,0.35)]"
+                src={`${import.meta.env.BASE_URL}icons/rg-jigsaw-192.png`}
+                alt="RG jigsaw app icon"
+                className="h-12 w-12 rounded-xl object-contain"
               />
             </div>
             <div className="min-w-0">
-              <h1 className="truncate bg-gradient-to-r from-white via-slate-100 to-purple-100 bg-clip-text text-xl font-extrabold tracking-tight text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] sm:text-2xl">RPL Educator Companion</h1>
-              <p className="hidden truncate text-xs text-slate-300 sm:block">Recognition of Prior Learning workspace</p>
+              <h1 className="truncate text-xl font-semibold tracking-tight text-white sm:text-2xl">RPL Educator Companion</h1>
+              <p className="hidden truncate text-xs text-[#b0c6d6] sm:block">Recognition of Prior Learning workspace</p>
             </div>
           </div>
           <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 flex-col items-center lg:flex">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b0c6d6]">
               Developer Demonstration Version
             </p>
             <TooltipProvider delayDuration={200}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <button type="button" className="pointer-events-auto mt-1 cursor-help text-[10px] font-medium tracking-wide text-slate-300 underline decoration-slate-500 underline-offset-2 transition hover:text-white">
+                  <button type="button" className="pointer-events-auto mt-1 cursor-help text-[10px] font-medium tracking-wide text-[#b0c6d6] underline decoration-[#7b97aa] underline-offset-2 transition hover:text-white">
                     © Stuart Anderson, Fastigiata Lab
                   </button>
                 </TooltipTrigger>
-                <TooltipContent side="bottom" className="max-w-md border border-slate-600 bg-slate-950 px-3 py-2 text-center text-xs leading-5 text-slate-100 shadow-xl">
+                <TooltipContent side="bottom" className="max-w-md border border-[#7b97aa] bg-[#161618] px-3 py-2 text-center text-xs leading-5 text-[#b0c6d6] shadow-xl">
                   RPL Educator Companion © 2026 Stuart Anderson / Fastigiata Lab. Licensed under GNU AGPL v3.0. Dynamic Card Mapping™ conceived and developed by Stuart Anderson. See repository LICENSE and NOTICE for details.
                 </TooltipContent>
               </Tooltip>
