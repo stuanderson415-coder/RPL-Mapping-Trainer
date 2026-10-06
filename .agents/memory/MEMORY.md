@@ -1,3 +1,4 @@
 - [TGA API approach](tga-api.md) — training.gov.au is a Nuxt SPA; must use their JSON API, not HTML scraping
 - [Wide workspace scrolling](wide-workspace-scrolling.md) — keep horizontally scrollable boards outside the shared Radix vertical scroll wrapper
 - [RPL outcome terminology](rpl-outcomes.md) — final decisions are Granted, In Progress, or Not Granted; partial RPL is not valid
+- [Install icons](install-icons.md) — password protection can block unauthenticated manifest/icon requests; preserve the demonstration access wall.

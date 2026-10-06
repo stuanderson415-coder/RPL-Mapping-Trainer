@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="RG">
-  <rect width="512" height="512" rx="104" fill="#292F35"/>
-  <rect x="92" y="96" width="328" height="320" rx="38" fill="#344553"/>
-  <rect x="72" y="76" width="328" height="320" rx="38" fill="#303C47" stroke="#6D879D" stroke-width="4"/>
+  <rect width="512" height="512" fill="#292F35"/>
+  <defs>
+    <path id="piece" d="M112 120H218C224 120 227 117 224 111C213 88 227 64 252 64C277 64 291 88 280 111C277 117 280 120 286 120H388Q400 120 400 132V214C400 221 404 224 410 221C433 210 456 225 456 250C456 275 433 290 410 279C404 276 400 279 400 286V388Q400 400 388 400H286C280 400 277 396 280 390C291 367 277 346 252 346C227 346 213 367 224 390C227 396 224 400 218 400H112Q100 400 100 388V286C100 279 104 276 110 279C133 290 154 275 154 250C154 225 133 210 110 221C104 224 100 221 100 214V132Q100 120 112 120Z"/>
+  </defs>
+  <use href="#piece" transform="translate(10 12)" fill="#344553"/>
+  <use href="#piece" fill="#303C47" stroke="#6D879D" stroke-width="4"/>
   <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
-    <path d="M139 300V171h47c28 0 44 13 44 35s-16 36-44 36h-47m46 0 48 58" stroke="#BBCDDA"/>
+    <path d="M139 300V171h47c28 0 44 13 44 35s-16 36-44 36h-47m46 0 48 58" transform="translate(32 0) scale(.90 1)" stroke="#BBCDDA"/>
     <path d="M365 187c-12-12-25-18-44-18-34 0-55 27-55 67s21 67 56 67c19 0 34-6 46-16v-49h-41" stroke="#8FAFC6"/>
   </g>
-  <path d="M140 342h226" stroke="#6D879D" stroke-width="4" stroke-linecap="round"/>
 </svg>

@@ -84,3 +84,17 @@ mtime_ms = 1791258474605
 storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/19a99712-bb09-479e-981a-7e2df74a17dc/93dec060-039d-46c4-98f9-b42c6f8f5b3b"
 storage_version_token = "1791258520302182"
 content_type = "image/png"
+
+[[outputs]]
+id = "tE6wU4XVxqN12kY3z9P6K"
+uri = "file://artifacts/map-app-de/public/icons/rg-jigsaw-512.png"
+type = "image"
+title = "RG jigsaw app icon"
+description = "Charcoal and muted-blue jigsaw piece with thin RG lettering."
+logical_id = "dfd874a6-eff1-4bbb-a65c-7b1714208321"
+content_hash = "sha256:c9d59b22294eabdb3d9fc464087535e2c1a3d5bcef5edaeda7837c9114255d9d"
+size = 20192
+mtime_ms = 1791259670841
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/dfd874a6-eff1-4bbb-a65c-7b1714208321/93b161a5-8763-4e75-be47-efc69c70c9ae"
+storage_version_token = "1791259691946836"
+content_type = "image/png"
