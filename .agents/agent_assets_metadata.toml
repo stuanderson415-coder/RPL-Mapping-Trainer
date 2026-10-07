@@ -112,3 +112,17 @@ mtime_ms = 1791338035999
 storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/e0bb1436-cb5f-4d2b-8f40-30524bd0f97f/22d7f05c-12f2-4043-84c1-b7dae12b3a9c"
 storage_version_token = "1791338098739894"
 content_type = "image/png"
+
+[[outputs]]
+id = "4iTzvcv1rZrwByZttJqqd"
+uri = "file://artifacts/map-app-de/public/icons/rg-purple-book-512.png"
+type = "image"
+title = "Purple book and RG app icon"
+description = "Purple faceted jigsaw with an engraved open book and RG underneath."
+logical_id = "5624ead7-c5de-4ba8-9f97-b58cd5325fa2"
+content_hash = "sha256:f934ae078e2188e085e9d462993681ef963b72a71bb5dece416755c87efabefb"
+size = 248162
+mtime_ms = 1791338559527
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/5624ead7-c5de-4ba8-9f97-b58cd5325fa2/e075385c-13b4-4d96-8f63-34a7ee7f0829"
+storage_version_token = "1791338618145659"
+content_type = "image/png"
