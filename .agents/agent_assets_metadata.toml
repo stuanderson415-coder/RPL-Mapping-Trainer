@@ -126,3 +126,31 @@ mtime_ms = 1791338559527
 storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/5624ead7-c5de-4ba8-9f97-b58cd5325fa2/e075385c-13b4-4d96-8f63-34a7ee7f0829"
 storage_version_token = "1791338618145659"
 content_type = "image/png"
+
+[[outputs]]
+id = "deYC7T-HOfaHxMT_6Whu4"
+uri = "file://artifacts/map-app-de/public/icons/rg-purple-book-bold-512.png"
+type = "image"
+title = "Book icon with bold RG"
+description = "Purple jigsaw icon with engraved book and heavier RG lettering."
+logical_id = "82f98bc5-f52c-4fc9-bfa1-8c8ed9f2c282"
+content_hash = "sha256:fcb38c828e4db25caec21e2546ea4cb8c67d8e299ecf38dcc28af5a4eaff9867"
+size = 275223
+mtime_ms = 1791338706412
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/82f98bc5-f52c-4fc9-bfa1-8c8ed9f2c282/2a0a5237-2a3b-4efb-af36-5227c3e3cb10"
+storage_version_token = "1791338736540097"
+content_type = "image/png"
+
+[[outputs]]
+id = "jQvIX5t_bCAukjKyutidZ"
+uri = "file://artifacts/map-app-de/public/icons/rg-purple-checklist-512.png"
+type = "image"
+title = "Checklist icon with bold RG"
+description = "Purple jigsaw with an engraved checklist and bold RG underneath."
+logical_id = "2d1a3eff-e2b6-4bda-8893-8d8f262c4d9e"
+content_hash = "sha256:cdc328ff68f40f1cd7c2d1a94ed54644c66f1eee643a94624c8565731eafad94"
+size = 282298
+mtime_ms = 1791338783732
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/2d1a3eff-e2b6-4bda-8893-8d8f262c4d9e/0e929f7b-25e9-4298-8d46-ba553005c41c"
+storage_version_token = "1791338812827819"
+content_type = "image/png"
