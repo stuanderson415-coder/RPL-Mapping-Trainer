@@ -98,3 +98,17 @@ mtime_ms = 1791259670841
 storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/dfd874a6-eff1-4bbb-a65c-7b1714208321/93b161a5-8763-4e75-be47-efc69c70c9ae"
 storage_version_token = "1791259691946836"
 content_type = "image/png"
+
+[[outputs]]
+id = "X-bP2_6k-mKuG9ybki7IG"
+uri = "file://artifacts/map-app-de/public/icons/rg-purple-engraved-512.png"
+type = "image"
+title = "RPL Companion — engraved RG icon"
+description = "Purple faceted jigsaw with an engraved circular mark and RG lettering."
+logical_id = "e0bb1436-cb5f-4d2b-8f40-30524bd0f97f"
+content_hash = "sha256:090d3ac871d8fd549592460178a73787a45795f094cefc0b7f26f12ae7af9e6b"
+size = 191211
+mtime_ms = 1791338035999
+storage_uri = "gcs://replit-rams-assets-spock/rams/assets/repl:58c13128-b75a-4fec-8f78-d6eb339fda61/e0bb1436-cb5f-4d2b-8f40-30524bd0f97f/22d7f05c-12f2-4043-84c1-b7dae12b3a9c"
+storage_version_token = "1791338098739894"
+content_type = "image/png"

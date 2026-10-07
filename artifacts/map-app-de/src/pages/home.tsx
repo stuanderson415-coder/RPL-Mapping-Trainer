@@ -183,8 +183,8 @@ export default function Home() {
           <div className="flex min-w-0 items-center gap-3">
             <div className="w-12 shrink-0">
               <img
-                src={`${import.meta.env.BASE_URL}icons/rg-jigsaw-192.png`}
-                alt="RG jigsaw app icon"
+                src={`${import.meta.env.BASE_URL}icons/rg-purple-engraved-192.png`}
+                alt="Purple jigsaw app icon with engraved RG"
                 className="h-12 w-12 rounded-xl object-contain"
               />
             </div>
