@@ -185,7 +185,7 @@ export async function exportRplToWord(unit: UnitOfCompetency, record: RplRecord)
   const studentSignatureDate = formatDate(record.finalisation.studentSignatureDate) || '________________';
   const assessorSignatureDate = formatDate(record.finalisation.assessorSignatureDate) || '________________';
   const doc = new Document({
-    creator: 'RPL Educator Companion',
+    creator: 'RPL Mapping Trainer',
     description: 'Recognition of Prior Learning assessment record',
     sections: [{
       properties: {

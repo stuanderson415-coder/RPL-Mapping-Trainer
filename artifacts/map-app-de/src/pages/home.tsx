@@ -22,12 +22,11 @@ function loadTitle(): string {
 
 function WelcomePanel() {
   const steps = [
-    'Confirm the student details and RPL application context.',
-    'Build the learner’s certified evidence log.',
-    'Map each evidence item to the unit requirements.',
-    'Record gaps and complete interview questions or assessments.',
-    'Review the coverage and make the final assessment decision.',
-    'Generate the completed RPL assessor report.',
+    'Describe and log each RPL evidence piece.',
+    'Map evidence to the Unit of Competence.',
+    'Identify gaps in the evidence mapping.',
+    'Devise gap questions to explore missing evidence.',
+    'Review a report comparing collected evidence with the Unit of Competence.',
   ];
 
   return (
@@ -38,9 +37,9 @@ function WelcomePanel() {
         </div>
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-purple-700">Welcome</p>
-          <h2 className="mt-0.5 text-xl font-bold tracking-tight text-zinc-900">Welcome to RPL Educator Companion</h2>
+          <h2 className="mt-0.5 text-xl font-bold tracking-tight text-zinc-900">Welcome to RPL Mapping Trainer</h2>
           <p className="mt-1 max-w-3xl text-xs leading-5 text-zinc-600">
-            This tool will assist you to organise and map a student’s evidence submitted toward an RPL application.
+            This tool is designed to help you describe and log RPL evidence pieces, map them using a dynamic mapping interface and identify gaps. You will then devise gap questions. You will then be able to look at a report and check your evidence collected vs the Unit of Competence.
           </p>
         </div>
       </div>
@@ -59,12 +58,18 @@ function WelcomePanel() {
         </div>
         <aside className="rounded-xl border border-purple-100 bg-purple-50/80 p-3">
           <FileCheck2 className="h-5 w-5 text-purple-700" />
-          <h3 className="mt-2 text-sm font-semibold text-purple-950">Your final report</h3>
+          <h3 className="mt-2 text-sm font-semibold text-purple-950">Important!</h3>
           <p className="mt-1 text-xs leading-5 text-purple-900">
-            At the conclusion of the process, you can generate an RPL assessor report combining the learner’s certified evidence log, gap assessments and interview records, final mapping, and assessment decision.
-          </p>
-          <p className="mt-1 text-[11px] font-medium leading-4 text-purple-800">
-            Lodge this report with the student’s RPL application form.
+            This resource is about learning skills. It is not a formal tool for use at CIT. The processing of full learner RPL portfolios needs to follow CIT&apos;s process for RPL. You can find that information{' '}
+            <a
+              href="https://cit.edu.au/study/apply/status/recognition-of-prior-learning"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline underline-offset-2 hover:text-green-950"
+            >
+              here
+            </a>
+            .
           </p>
         </aside>
       </div>
@@ -183,14 +188,14 @@ export default function Home() {
           <div className="flex min-w-0 items-center gap-3">
             <div className="w-12 shrink-0">
               <img
-                src={`${import.meta.env.BASE_URL}icons/rg-purple-checklist-192.png`}
-                alt="Purple jigsaw app icon with engraved checklist and bold RG"
+                src={`${import.meta.env.BASE_URL}icons/map-app-icon.svg`}
+                alt="Green app icon with MAP lettering"
                 className="h-12 w-12 rounded-xl object-contain"
               />
             </div>
             <div className="min-w-0">
-              <h1 className="truncate text-xl font-semibold tracking-tight text-white sm:text-2xl">RPL Educator Companion</h1>
-              <p className="hidden truncate text-xs text-[#b0c6d6] sm:block">Recognition of Prior Learning workspace</p>
+              <h1 className="truncate text-xl font-semibold tracking-tight text-white sm:text-2xl">RPL Mapping Trainer</h1>
+              <p className="hidden truncate text-xs text-[#b0c6d6] sm:block">Recognition of Prior Learning Learning Space</p>
             </div>
           </div>
           <div className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 flex-col items-center lg:flex">
@@ -205,7 +210,7 @@ export default function Home() {
                   </button>
                 </TooltipTrigger>
                 <TooltipContent side="bottom" className="max-w-md border border-[#7b97aa] bg-[#161618] px-3 py-2 text-center text-xs leading-5 text-[#b0c6d6] shadow-xl">
-                  RPL Educator Companion © 2026 Stuart Anderson / Fastigiata Lab. Licensed under GNU AGPL v3.0. Dynamic Card Mapping™ conceived and developed by Stuart Anderson. See repository LICENSE and NOTICE for details.
+                  RPL Mapping Trainer © 2026 Stuart Anderson / Fastigiata Lab. Licensed under GNU AGPL v3.0. Dynamic Card Mapping™ conceived and developed by Stuart Anderson. See repository LICENSE and NOTICE for details.
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
