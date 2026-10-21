@@ -56,16 +56,16 @@ function WelcomePanel() {
             ))}
           </ol>
         </div>
-        <aside className="rounded-xl border border-purple-100 bg-purple-50/80 p-3">
-          <FileCheck2 className="h-5 w-5 text-purple-700" />
-          <h3 className="mt-2 text-sm font-semibold text-purple-950">Important!</h3>
-          <p className="mt-1 text-xs leading-5 text-purple-900">
+        <aside className="rounded-xl border border-green-950 bg-green-950 p-3 text-white">
+          <FileCheck2 className="h-5 w-5 text-green-100" />
+          <h3 className="mt-2 text-sm font-semibold text-white">Important!</h3>
+          <p className="mt-1 text-xs leading-5 text-green-50">
             This resource is about learning skills. It is not a formal tool for use at CIT. The processing of full learner RPL portfolios needs to follow CIT&apos;s process for RPL. You can find that information{' '}
             <a
               href="https://cit.edu.au/study/apply/status/recognition-of-prior-learning"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2 hover:text-green-950"
+              className="font-semibold text-white underline underline-offset-2 hover:text-green-200"
             >
               here
             </a>
@@ -183,7 +183,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-[#393639] bg-gradient-to-r from-[#161618] via-[#232427] to-[#1f2022] text-white shadow-md">
+      <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-green-950 bg-gradient-to-r from-[#022c22] via-[#064e3b] to-[#052e16] text-white shadow-md">
         <div className="flex h-full w-full items-center justify-between gap-3 px-4 md:px-6">
           <div className="flex min-w-0 items-center gap-3">
             <div className="w-12 shrink-0">
@@ -217,9 +217,11 @@ export default function Home() {
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <div className="hidden items-center gap-2 md:flex">
-              <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">
-                <img src="https://img.shields.io/badge/License-AGPL--3.0-blue.svg" alt="License: GNU AGPL 3.0" className="h-5" />
-              </a>
+              <img
+                src={`${import.meta.env.BASE_URL}images/adult-learner-feature.png`}
+                alt="Adult learner reviewing vocational study materials"
+                className="hidden h-10 w-24 rounded-md border border-white/25 object-cover lg:block xl:h-11 xl:w-28"
+              />
               <a href="https://github.com/stuanderson415-coder/Unit-Scraper-Pro" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.shields.io/badge/Source-GitHub-181717?logo=github" alt="Source on GitHub" className="h-5" />
               </a>
