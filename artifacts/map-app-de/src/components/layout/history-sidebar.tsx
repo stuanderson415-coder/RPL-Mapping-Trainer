@@ -39,7 +39,7 @@ export function HistorySidebar({ onSelect }: { onSelect: (code: string, studentN
       <div className="flex items-center justify-between border-b border-zinc-500 bg-zinc-600 p-2">
         <div className="flex items-center gap-1.5 text-xs font-medium text-zinc-100">
           <History className="h-3.5 w-3.5 text-white" />
-          Applications in progress
+          Training in progress
         </div>
       </div>
       <ScrollArea className="flex-1">
@@ -48,8 +48,8 @@ export function HistorySidebar({ onSelect }: { onSelect: (code: string, studentN
             <div className="mb-1 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-600">
               <ClipboardCheck className="h-5 w-5 text-white" />
             </div>
-            <p>No applications in progress.</p>
-            <p className="text-xs text-zinc-300">Start an RPL assessment to see it here.</p>
+            <p>Your RPL applications in training will show here.</p>
+            <p className="text-xs text-zinc-300">Don&apos;t forget to save your work as you progress.</p>
           </div>
         ) : (
           <div className="divide-y divide-zinc-400">
